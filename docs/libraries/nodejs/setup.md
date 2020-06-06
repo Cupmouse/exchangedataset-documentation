@@ -18,7 +18,9 @@ Don't forget to replace `"PUT YOUR API KEY HERE"` to your API-key.
 ```javascript
 import { createClient } from 'exchangedataset-node';
 
-const client = createClient("PUT YOUR API KEY HERE");
+const client = createClient({
+  apikey: "PUT YOUR API KEY HERE",
+});
 
 const req = client.replay({
   filter: {
