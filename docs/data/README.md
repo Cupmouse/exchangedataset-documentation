@@ -7,3 +7,7 @@ Please read this section before ordering tickets for the first time to see if we
 ## [➔ Supported Exchange & Channels](data/table.md)
 
 ## [➔ Bitmex](data/bitmex.md)
+
+## [➔ Bitfinex](data/bitfinex.md)
+
+## [➔ Bitflyer](data/bitflyer.md)
