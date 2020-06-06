@@ -7,10 +7,11 @@
 * Libraries
   * [Node.JS](libraries/nodejs/)
     * [Setup](libraries/nodejs/setup.md)
-    * [🡕 Examples](//test.com)
-    * [🡕 API Documentation](//test.com)
+    * [Quick Start](libraries/nodejs/quickstart.md)
+    * [🡕 Examples](https://repl.it/@exchangedataset/exchangedataset-node-examples)
+    * [🡕 API Documentation](https://exchangedataset.github.io/exchangedataset-node/)
   <!-- * [Python3](libraries/python3/) -->
-<!-- * [excd-cli](commandline/) -->
+<!-- * [Command Line](commandline/) -->
 * HTTP Endpoints
   * [Authentication](/http/authentication.md)
   * [Filter](/http/filter.md)
