@@ -3,7 +3,7 @@
   * [Recorded Exchanges & Channels](data/table.md)
   * [Bitmex](data/bitmex.md)
   * [Bitfinex](data/bitfinex.md)
-  * [Bitflyer](data/bitflyer.md)
+  * [BitFlyer](data/bitflyer.md)
 * Libraries
   * [Node.JS](libraries/nodejs/)
     * [Setup](libraries/nodejs/setup.md)
@@ -16,3 +16,13 @@
   * [Authentication](/http/authentication.md)
   * [Filter](/http/filter.md)
   * [Snapshot](/http/snapshot.md)
+  * [Format](/http/format/)
+    * [Field Types](http/format/types.md)
+    * Common Formatting
+      * [Orderbook](http/format/orderbook.md)
+      * [Orderbook Order ID](http/format/orderbook-orderid.md)
+      * [Trade](http/format/trade.md)
+    * Exchange
+      * [Bitmex](http/format/bitmex.md)
+      * Bitfinex
+      * [BitFlyer](http/format/bitflyer.md)

@@ -6,7 +6,7 @@
 
 We aim to provide world's one of the highest precision, most detailed data for data-scientists, spot/delivative traders regardless of individual or institution to backtest their models or to facilitate data-driven trade decisions that withstands daily to the most extreme use.
 
-## [➔ Supported Exchange & Channels](datasets/table.md) {docsify-ignore}
+## [➔ Supported Exchange & Channels](data/table.md) {docsify-ignore}
 
 For the list of supported exchanges & channels, click the link above.
 

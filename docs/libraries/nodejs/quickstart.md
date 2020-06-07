@@ -208,5 +208,5 @@ for await (const line of req.stream()) {
 }
 ```
 
-!> Even though start line is not given at the beggining of a stream, Replay API and Raw API would automatically fetch the initial state (such as board snapshot) from Snapshot Endpoint.
+?> Even though start line is not given at the beggining of a stream, Replay API and Raw API would automatically fetch the initial state (such as board snapshot) from Snapshot Endpoint.
 You can always assume that you are provided with the data needed to reconstruct a certain channel by using those APIs.

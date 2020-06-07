@@ -10,7 +10,7 @@ Further detail for exchange is described in each page.
 | -------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | - |
 | Bitmex   | `announcement`, `chat`, `connected`, `funding`, `instrument`, `insurance`, `liquidation`, `orderBookL2`, `publicNotifications`, `settlement`, `trade` | All pairs                                                             | 6 Jan 2019    |
 | Bitfinex | `trades_{pair}`, `book_{pair}`                                                                                                    | `tBTCUSD` + (Top 14 spot pairs by volume in USD at the time of the recording) | 6 Jan 2019    |
-| Bitflyer | `lightning_board_{pair}`, `lightning_board_snapshot_{pair}`, `lightning_executions_{pair}`, `lightning_ticker_{pair}`                   | `FX_BTC_JPY`, `BTC_JPY`, `ETH_BTC`, `BCH_USD` + (Bitcoin/JPY Futures)         | 6 Jan 2019    |
+| BitFlyer | `lightning_board_{pair}`, `lightning_board_snapshot_{pair}`, `lightning_executions_{pair}`, `lightning_ticker_{pair}`                   | `FX_BTC_JPY`, `BTC_JPY`, `ETH_BTC`, `BCH_USD` + (Bitcoin/JPY Futures)         | 6 Jan 2019    |
 
 * Channels - Channels recorded.
 * Pairs - List of pairs recorded and available.
@@ -23,7 +23,7 @@ Further detail for exchange is described in each page.
 | -------- | ------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | Bitmex   | `orderBookL2`, `instrument`         | No (Client-side filtering are supported via library) | `orderBookL2`, `trade`, `instrument`, `liquidation`, `settlement`, `insurance`, `funding`                                   |
 | Bitfinex | `trades_{pair}`                  | ✓ Yes                                                | `trades_{pair}`, `book_{pair}`                                                                                    |
-| Bitflyer | `lightning_board_snapshot_{pair}` | ✓ Yes                                                | `lightning_board_snapshot_{pair}`, `lightning_board_{pair},` `lightning_executions_{pair}`, `lightning_ticker_{pair}` |
+| BitFlyer | `lightning_board_snapshot_{pair}` | ✓ Yes                                                | `lightning_board_snapshot_{pair}`, `lightning_board_{pair},` `lightning_executions_{pair}`, `lightning_ticker_{pair}` |
 
 * Snapshot Support - Channels supported by Snapshot Endpoint.
 * Server-side Formatting - List of channels whose messages can be formatted on the server-side. See server-side formatting.

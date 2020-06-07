@@ -1,14 +1,14 @@
-# Bitflyer
+# BitFlyer
 
 All public channels are recorded.
 
-The URL used to record the Bitflyer Public WebSocket API is:
+The URL used to record the BitFlyer Public WebSocket API is:
 
 ```url
 wss://ws.lightstream.bitflyer.com/json-rpc
 ```
 
-Bitflyer does not provide the way to subscribe to every pair in the market, instead, our system looks for available pairs using the REST API at the start of recording and send subscribe to those channels.
+BitFlyer does not provide the way to subscribe to every pair in the market, instead, our system looks for available pairs using the REST API at the start of recording and send subscribe to those channels.
 
 The URL used to fetch the list of pairs is:
 
@@ -16,11 +16,11 @@ The URL used to fetch the list of pairs is:
 https://api.bitflyer.com/v1/markets
 ```
 
-?> For information about original API messages, see [Bitflyer API Doc](https://bf-lightning-api.readme.io/docs?ljs=en).
+?> For information about original API messages, see [BitFlyer API Doc](https://bf-lightning-api.readme.io/docs?ljs=en).
 
 ## Maintenance Time
 
-Bitflyer performs scheduled maintenance usually from 9:00 PM to 9:10 PM (GMT) every day.
+BitFlyer performs scheduled maintenance usually from 9:00 PM to 9:10 PM (GMT) every day.
 
 Data in this period is not recorded.
 
@@ -28,7 +28,7 @@ Our system tries to reconnect to the original API server as soon as possible, an
 
 For the 2 minutes after the market has reopened, itayose will be implemented.
 
-?> For more information about maintenance, see [Bitflyer Website](https://bitflyer.com/en-jp/faq/Maintenance).
+?> For more information about maintenance, see [BitFlyer Website](https://bitflyer.com/en-jp/faq/Maintenance).
 
 ## Itayose
 

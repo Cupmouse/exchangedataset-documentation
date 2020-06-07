@@ -10,4 +10,4 @@ Please read this section before ordering tickets for the first time to see if we
 
 ## [➔ Bitfinex](data/bitfinex.md)
 
-## [➔ Bitflyer](data/bitflyer.md)
+## [➔ BitFlyer](data/bitflyer.md)
