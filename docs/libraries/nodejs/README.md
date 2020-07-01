@@ -4,8 +4,6 @@
 
 ## [➔ Setup](libraries/nodejs/setup.md)
 
-## [➔ Quick Start](libraries/nodejs/quickstart.md)
-
 ## [🡕 Examples](https://repl.it/@exchangedataset/exchangedataset-node-examples)
 
 ## [🡕 API Documentation](https://exchangedataset.github.io/exchangedataset-node/)

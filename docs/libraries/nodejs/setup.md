@@ -24,7 +24,7 @@ const client = createClient({
 
 const req = client.replay({
   filter: {
-      bitmex: ["orderBookL2"],
+    bitmex: ["orderBookL2"],
   },
   start: "2019/10/24 10:24:10",
   end: "2019/10/24 10:24:30",

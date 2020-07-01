@@ -47,7 +47,7 @@ By providing two object, you will get `ReplayRequest` which represents the reque
 
 There is two ways to get `ReplayRequest`:
 
-- By calling `replay.replay(ClientParam, ReplayRequestParam)` function
+- By calling `replay(ClientParam, ReplayRequestParam)` function
 - Creating `Client` by `createClient(ClientParam)`, then call `client.replay(ReplayRequestParam)` function
 
 Both do the same job, however, `Client` can be reused to make another request, so you don't have to provide `ClientParam` again.
@@ -58,71 +58,88 @@ We recommend you to create an client so you don't have to provide API-key for ev
 
 Below code creates a `Client` for later use.
 
+<!-- tabs:start -->
+
+#### ** NodeJS **
+
 ```javascript
 const { createClient } = require("exchangedataset-node");
 
 // create client
 const client = createClient({
-    apikey: "API-key here",
+  apikey: "API-key here",
 });
 ```
+
+#### ** Python3 **
+
+```python
+from exdpy import Client
+
+# create client
+client = exdpy.Client(apikey='API-key here')
+```
+
+<!-- tabs:end -->
 
 ## Filtering
 
 Multiple exchanges and channels can be specified to be filtered-in:
 
+<!-- tabs:start -->
+
+#### ** NodeJS **
+
 ```javascript
 const req = client.replay({
-    filter: {
-        bitmex: [
-            // Replay API supports client-side pair level filtering for Bitmex
-            "orderBookL2_XBTUSD",
-            "trade_XBTUSD",
-        ],
-        bitflyer: [
-            "lightning_board_FX_BTC_JPY",
-            "lightning_executions_FX_BTC_JPY",
-        ],
-        bitfinex: [
-            "orders_tBTCUSD",
-            "book_tBTCUSD",
-        ],
-    },
-    start: "2019-05-12 10:00Z",
-    end: "2019-05-12 10:01Z",
+  filter: {
+    bitmex: [
+      // Replay API supports client-side pair level filtering for Bitmex
+      "orderBookL2_XBTUSD",
+      "trade_XBTUSD",
+    ],
+    bitflyer: [
+      "lightning_board_FX_BTC_JPY",
+      "lightning_executions_FX_BTC_JPY",
+    ],
+    bitfinex: [
+      "orders_tBTCUSD",
+      "book_tBTCUSD",
+    ],
+  },
+  start: "2019-05-12 10:00Z",
+  end: "2019-05-12 10:01Z",
 });
 ```
 
-You can use prepared builders for supported exchanges to eliminate possible typos.
+#### ** Python3 **
 
-```javascript
-// don't forget to import replay
-const { replay } = require("exchangedataset-node");
-
-// prepare request
-const req = client.replay({
-    filter: {
-        bitmex: replay.bitmex()
-            .orderBookL2(["XBTUSD"])
-            .trade(["XBTUSD"])
-            .build(),
-        bitflyer: replay.bitflyer()
-            .board(["FX_BTC_JPY"])
-            .executions(["FX_BTC_JPY"])
-            .build(),
-        bitfinex: replay.bitfinex()
-            .orders(["tBTCUSD"])
-            .book(["tBTCUSD"])
-            .build(),
-    },
-    start: "2019-05-12 10:00Z",
-    end: "2019-05-12 10:01Z",
-});
+```python
+req = client.replay({
+    'bitmex': [
+        # Replay API supports client-side pair level filtering for Bitmex
+        "orderBookL2_XBTUSD",
+        "trade_XBTUSD",
+    ],
+    'bitflyer': [
+        "lightning_board_FX_BTC_JPY",
+        "lightning_executions_FX_BTC_JPY",
+    ],
+    'bitfinex': [
+        "orders_tBTCUSD",
+        "book_tBTCUSD",
+    ],
+},
+"2019-05-12 10:00Z",
+"2019-05-12 10:01Z",
+)
 ```
+
+<!-- tabs:end -->
 
 !> Response for channels which is not supported or recorded is empty and produces no error.
 
-## Asynchronous Streaming or Download
+## Streaming or Download
 
 Once `ReplayRequest` is obtained, you can get result either by streaming or download.
 
@@ -130,9 +147,9 @@ Once `ReplayRequest` is obtained, you can get result either by streaming or down
 
 Download collects all results from multiple HTTP Endpoint calls into one array.
 
-Theoretically, this is quicker than streaming, due to the overhead of async iterator.
+Theoretically, this is quicker than streaming, due to the overhead of iterator.
 
-But storing all result takes memory space and is not always the most efficient way, easily crashing NodeJS by out of memory when large request was issued.
+But storing all result takes memory space and is not always the most efficient way, easily crashing application by out of memory when large request was issued.
 
 **Downloading is recommended only for smaller request.**
 
@@ -143,22 +160,26 @@ Streaming downloads what only needed to fill the buffer as your app goes through
 The size of buffer is fixed, so it won't cause out of memory.
 It can be set by giving 1st parameter to stream function.
 
-Please note that NodeJS does not support multi-threading, only IO/Network is parallelly executed.
-Because of this, usually, bigger buffer contributes to more stability and less waiting.
-
 **Streaming is great for big request, such as one spanning days.**
 
 We choose streaming in this tutorial.
 
+<!-- tabs:start -->
+
+#### ** NodeJS **
+
+!> Please note that NodeJS does not support multi-threading, only IO/Network is parallelly executed.
+Because of this, usually, bigger buffer contributes to more stability and less waiting.
+
 ```javascript
 // for await needs to be wrapped by async function
 const streaming = async () => {
-    for await (const line of req.stream()) {
-        if (line.type !== "msg") {
-            continue;
-        }
-        console.log(line);
+  for await (const line of req.stream()) {
+    if (line.type !== "msg") {
+      continue;
     }
+    console.log(line);
+  }
 }
 
 // call async function
@@ -168,6 +189,15 @@ streaming()
     console.log(e);
 })
 ```
+
+#### ** Python3 **
+
+```python
+for line in req.stream():
+    print(line)
+```
+
+<!-- tabs:end -->
 
 ## Processing Lines
 
@@ -196,6 +226,10 @@ If your app needs the initial state for channels, such as orderbook, you want to
 
 This could be done by checking the type of lines and discard previous state if you find the start line:
 
+<!-- tabs:start -->
+
+#### ** NodeJS **
+
 ```javascript
 for await (const line of req.stream()) {
     if (line.type === "msg") {
@@ -207,6 +241,19 @@ for await (const line of req.stream()) {
     // you can ignore other types since they are unnecessary for tracking state
 }
 ```
+
+#### ** Python3 **
+
+```python
+for line in req.stream():
+    if line.type === 'msg':
+        print(line)
+    elif line.type ==='start':
+        self.do_something_to_discard_state()
+    # you can ignore other types since they are unnecessary for tracking state
+```
+
+<!-- tabs:end -->
 
 ?> Even though start line is not given at the beggining of a stream, Replay API and Raw API would automatically fetch the initial state (such as board snapshot) from Snapshot Endpoint.
 You can always assume that you are provided with the data needed to reconstruct a certain channel by using those APIs.

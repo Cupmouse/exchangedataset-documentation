@@ -4,13 +4,15 @@
   * [Bitmex](data/bitmex.md)
   * [Bitfinex](data/bitfinex.md)
   * [BitFlyer](data/bitflyer.md)
-* Libraries
+* [Libraries](libraries/)
+  * [Quick Start](libraries/quickstart.md)
   * [Node.JS](libraries/nodejs/)
     * [Setup](libraries/nodejs/setup.md)
-    * [Quick Start](libraries/nodejs/quickstart.md)
     * [🡕 Examples](https://repl.it/@exchangedataset/exchangedataset-node-examples)
     * [🡕 API Documentation](https://exchangedataset.github.io/exchangedataset-node/)
-  <!-- * [Python3](libraries/python3/) -->
+  * [Python3](libraries/python3/)
+    * [Setup](libraries/python3/setup.md)
+    * [🡕 API Documentation](https://exchangedataset.github.io/exchangedataset-python/)
 <!-- * [Command Line](commandline/) -->
 * HTTP Endpoints
   * [Authentication](/http/authentication.md)

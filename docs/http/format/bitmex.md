@@ -23,7 +23,7 @@ Additional fields are provided by Bitmex:
 
 ## `instrument` Channel
 
-Fields which could be `null` are 
+Fields that are not `null` are instrument properties that was updated.
 
 | Field                          | Type               |
 | ------------------------------ | ------------------ |
