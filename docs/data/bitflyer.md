@@ -35,3 +35,11 @@ For the 2 minutes after the market has reopened, itayose will be implemented.
 Itayose is implemented when market reopens after maintenance or circuit breaker had struck.
 
 Orders executed on itayose will be ignored and not be applied to the snapshot of lightning_board_snapshot_{pair} from HTTP Snapshot Endpint.
+
+## Missing Record Report
+
+### From `2020-07-23 16:00:00Z` to `2020-07-24 05:56:14Z`
+
+A irregular maintenance was schduled from `2020-07-23 16:00:00` to `2020-07-23 21:20:00` in BitFlyer exchange, which should be treated by our system propery, but caused one of our client to reconnect to a unknown server, possibly a dummy server in the maintenance time, and not receive data from BitFlyer.
+This issue is fixed by restarting affected client and from `2020-07-24 05:56:14Z`, recording for BitFlyer has been resumed.
+Sorry for the inconvinience.
