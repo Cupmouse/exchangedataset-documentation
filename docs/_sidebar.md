@@ -28,3 +28,6 @@
       * [Bitmex](http/format/bitmex.md)
       * Bitfinex
       * [BitFlyer](http/format/bitflyer.md)
+* Support
+  * [Terms of Use](support/agreement.md)
+  * [Terms of Use(JP)](support/agreement_jp.md)
