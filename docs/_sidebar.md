@@ -29,5 +29,6 @@
       * Bitfinex
       * [BitFlyer](http/format/bitflyer.md)
 * Support
+  * [Frequently Asked Questions](support/faq.md)
   * [Terms of Use](support/agreement.md)
   * [Terms of Use(JP)](support/agreement_jp.md)
