@@ -11,3 +11,7 @@ Please read this section before ordering tickets for the first time to see if we
 ## [➔ Bitfinex](data/bitfinex.md)
 
 ## [➔ BitFlyer](data/bitflyer.md)
+
+## [➔ Binance](data/binance.md)
+
+## [➔ Liquid](data/liquid.md)

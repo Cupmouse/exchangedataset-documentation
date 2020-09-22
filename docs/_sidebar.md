@@ -4,6 +4,8 @@
   * [Bitmex](data/bitmex.md)
   * [Bitfinex](data/bitfinex.md)
   * [BitFlyer](data/bitflyer.md)
+  * [Binance](data/binance.md)
+  * [Liquid](data/liquid.md)
 * [Libraries](libraries/)
   * [Quick Start](libraries/quickstart.md)
   * [Node.JS](libraries/nodejs/)
