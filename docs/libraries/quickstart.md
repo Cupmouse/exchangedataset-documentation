@@ -2,7 +2,7 @@
 
 ## HTTP Module, Raw API and Replay API
 
-`exchangedataset-node` have a low-level API for HTTP Endpoints, medium and high-level streaming API.
+`exchangedataset-node`, `exchangedataset-python`, `exdgo` have a low-level API for HTTP Endpoints, medium and high-level streaming API.
 
 ### HTTP Module
 
@@ -80,6 +80,23 @@ from exdpy import Client
 client = exdpy.Client(apikey='API-key here')
 ```
 
+#### ** Golang **
+
+```go
+import "github.com/exchangedataset/exdgo"
+
+func main() {
+    // Create client
+    client, err := exdgo.CreateClient(exdgo.ClientParam{
+        APIKey: "API-key here",
+    })
+    if err != nil {
+        fmt.Println(err)
+        os.Exit(1)
+    }
+}
+```
+
 <!-- tabs:end -->
 
 ## Filtering
@@ -94,7 +111,6 @@ Multiple exchanges and channels can be specified to be filtered-in:
 const req = client.replay({
   filter: {
     bitmex: [
-      // Replay API supports client-side symbol level filtering for Bitmex
       "orderBookL2_XBTUSD",
       "trade_XBTUSD",
     ],
@@ -117,7 +133,6 @@ const req = client.replay({
 ```python
 req = client.replay({
     'bitmex': [
-        # Replay API supports client-side symbol level filtering for Bitmex
         "orderBookL2_XBTUSD",
         "trade_XBTUSD",
     ],
@@ -133,6 +148,45 @@ req = client.replay({
 "2019-05-12 10:00Z",
 "2019-05-12 10:01Z",
 )
+```
+
+#### ** Golang **
+
+```go
+start, err := time.Parse(time.RFC3339, "2019-05-12 10:00Z")
+if err != nil {
+  fmt.Println(err)
+  os.Exit(1)
+}
+end, err := time.Parse(time.RFC3339, "2019-05-12 10:01Z")
+if err != nil {
+  fmt.Println(err)
+  os.Exit(1)
+}
+rp := exdgo.ReplayRequestParam{
+    Filter: map[string][]string{
+        "bitmex": []string{
+            "orderBookL2_XBTUSD",
+            "trade_XBTUSD",
+        },
+        "bitflyer": []string{
+            "lightning_board_FX_BTC_JPY",
+            "lightning_executions_FX_BTC_JPY",
+        },
+        "bitfinex": []string{
+            "orders_tBTCUSD",
+            "book_tBTCUSD",
+        },
+    },
+    Start: start,
+    End: end,
+}
+req, err := client.Replay(rp)
+if err != nil {
+    // Do error handling
+    fmt.Println(err)
+    os.Exit(1)
+}
 ```
 
 <!-- tabs:end -->
@@ -194,7 +248,37 @@ streaming()
 
 ```python
 for line in req.stream():
-    print(line)
+    if line.type == 'msg':
+        print(line)
+```
+
+#### ** Golang **
+
+```go
+itr, err := req.Stream()
+if err != nil {
+    fmt.Println(err)
+    os.Exit(1)
+}
+defer func() {
+    err = itr.Close()
+    if err != nil {
+        fmt.Println(err)
+        os.Exit(1)
+    }
+}()
+for {
+    if line, ok, err := itr.Next(); ok {
+        if line.Type == exdgo.LineTypeMessage {
+            fmt.Println(line)
+        }
+    } else if err != nil {
+        fmt.Println(err)
+        os.Exit(1)
+    } else {
+        break
+    }
+}
 ```
 
 <!-- tabs:end -->
@@ -253,7 +337,25 @@ for line in req.stream():
     # you can ignore other types since they are unnecessary for tracking state
 ```
 
+#### ** Golang **
+
+```go
+for {
+    if line, ok, err := itr.Next(); ok {
+        if line.Type == exdgo.LineTypeMessage {
+            fmt.Println(line)
+        } else if line.Type == exdgo.LineTypeStart {
+            // doSomethingToDiscardState
+        }
+    } else if err != nil {
+        fmt.Println(err)
+        os.Exit(1)
+    } else {
+        break
+    }
+}
+```
+
 <!-- tabs:end -->
 
-?> Even though start line is not given at the beggining of a stream, Replay API and Raw API would automatically fetch the initial state (such as board snapshot) from Snapshot Endpoint.
-You can always assume that you are provided with the data needed to reconstruct a certain channel by using those APIs.
+?> Even though start line is not given at the beggining of a stream, Replay API and Raw API would automatically fetch the initial state (such as board snapshot) from the Snapshot Endpoint if the channel is supported by it.

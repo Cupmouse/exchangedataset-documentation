@@ -15,7 +15,11 @@
   * [Python3](libraries/python3/)
     * [Setup](libraries/python3/setup.md)
     * [🡕 API Documentation](https://exchangedataset.github.io/exchangedataset-python/)
-<!-- * [Command Line](commandline/) -->
+  * [Golang](libraries/golang/)
+    * [Setup](libraries/golang/setup.md)
+    * [🡕 API Documentation](https://godoc.org/github.com/exchangedataset/exdgo)
+  <!-- * [Command Line](libraries/cli/)
+    * [Setup](libraries/cli/setup.md) -->
 * HTTP Endpoints
   * [Authentication](/http/authentication.md)
   * [Filter](/http/filter.md)

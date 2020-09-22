@@ -13,21 +13,21 @@ npm install exchangedataset-node
 !> You must have enabled API-key with tickets to continue.
 
 You can check if you have successfully setup your enviroment by copy-and-pasting code below to your index.js file.
-Don't forget to replace `"PUT YOUR API KEY HERE"` to your API-key.
+Don't forget to replace `"YOUR API KEY"` to your API-key.
 
 ```javascript
 import { createClient } from 'exchangedataset-node';
 
 const client = createClient({
-  apikey: "PUT YOUR API KEY HERE",
+  apikey: "YOUR API KEY",
 });
 
 const req = client.replay({
   filter: {
     bitmex: ["orderBookL2"],
   },
-  start: "2019/10/24 10:24:10",
-  end: "2019/10/24 10:24:30",
+  start: "2019/10/24 10:24:10Z",
+  end: "2019/10/24 10:24:30Z",
 });
 
 for await (const line of req.stream()) {
