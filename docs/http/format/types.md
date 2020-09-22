@@ -19,9 +19,9 @@ These are the data types supported by JSON:
 
 ## Type Mapping Table
 
-| Type        | JSON Data Type | Predicted Value                                                                                                                                                                                            |
+| Type        | JSON Data Type | Description                                                                                                                                                                                                |
 | ----------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pair`      | string         | Name of the pair                                                                                                                                                                                           |
+| `symbol`    | string         | Name of the symbol                                                                                                                                                                                         |
 | `price`     | number         | Price in floating point number                                                                                                                                                                             |
 | `size`      | number         | Size of order in floating point number                                                                                                                                                                     |
 | `guid`      | string         | GUID in string                                                                                                                                                                                             |

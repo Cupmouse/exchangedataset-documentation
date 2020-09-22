@@ -16,6 +16,10 @@ https://api.exchangedataset.cc/v1/filter/<exchange>/<minute>?channels=<channels>
 
 This Endpoint consumes quota by transferred data (=size of response body in bytes).
 
+Orderbook channels only consume 1/10 of normal.
+
+Each request will consume at least 1024bytes (1kb) of quota.
+
 ## Parameters
 
 | Name       | Type       | Description                                                                | Default Value        |

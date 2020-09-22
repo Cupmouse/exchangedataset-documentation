@@ -4,7 +4,7 @@ Orders in orderbook are individually formatted into JSON object below:
 
 ```json
 {
-    "pair": pair,
+    "symbol": symbol,
     "price": price,
     "id": int,
     "size": size
@@ -13,12 +13,12 @@ Orders in orderbook are individually formatted into JSON object below:
 
 ## Fields
 
-| Field | Type    | Description                                                                             |
-| ----- | ------- | --------------------------------------------------------------------------------------- |
-| pair  | `pair`  | Name of the pair this order is from                                                     |
-| price | `price` | Price of the order, 0 if order is already appeared before                               |
-| id    | `int`   | Order ID                                                                                |
-| size  | `size`  | Size of the order, buy if positive, sell if negative, remove from the orderbook if zero |
+| Field  | Type     | Description                                                                             |
+| ------ | -------- | --------------------------------------------------------------------------------------- |
+| symbol | `symbol` | Name of the symbol this order is from                                                   |
+| price  | `price`  | Price of the order, 0 if order is already appeared before                               |
+| id     | `int`    | Order ID                                                                                |
+| size   | `size`   | Size of the order, buy if positive, sell if negative, remove from the orderbook if zero |
 
 ## Example: Keep Track of Orderbook
 

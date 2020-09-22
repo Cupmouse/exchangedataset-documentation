@@ -22,7 +22,9 @@ Scanned bytes are calculated by how much data it had to lookup to take snapshot 
 
 If your query required the endpoint to look for 5,000,000 bytes of original datasets and returned a snapshot of 1,000 bytes, then you will be charged for 5,000,000 bytes.
 
-Be careful if you want to make a CSV file for orderbook channel.
+Be careful if you want to make a CSV file for a orderbook channel.
+
+Each request will consume at least 1024bytes (1kb) of quota.
 
 ## Parameters
 

@@ -18,13 +18,13 @@ Raw API is a medium-level API for streaming or downloading data.
 
 It replays market data as string given start date, end date, exchange, format etc. and takes care of all necessary requests to HTTP Endpoints.
 
-!> Raw API does not support client-side pair level filtering. For what channels server-side filtering is not supported for, see [Recorded Exchange/Channels](data/table).
+!> Raw API does not support client-side symbol level filtering. For what channels server-side filtering is not supported for, see [Recorded Exchange/Channels](data/table).
 
 ### Replay
 
 Replay API is a high-level API for streaming or downloading data.
 
-It formats market data into object and also supports pair level filtering for all channels.
+It formats market data into object and also supports symbol level filtering for all channels.
 
 Other functionalities are same as Raw API.
 
@@ -94,7 +94,7 @@ Multiple exchanges and channels can be specified to be filtered-in:
 const req = client.replay({
   filter: {
     bitmex: [
-      // Replay API supports client-side pair level filtering for Bitmex
+      // Replay API supports client-side symbol level filtering for Bitmex
       "orderBookL2_XBTUSD",
       "trade_XBTUSD",
     ],
@@ -117,7 +117,7 @@ const req = client.replay({
 ```python
 req = client.replay({
     'bitmex': [
-        # Replay API supports client-side pair level filtering for Bitmex
+        # Replay API supports client-side symbol level filtering for Bitmex
         "orderBookL2_XBTUSD",
         "trade_XBTUSD",
     ],

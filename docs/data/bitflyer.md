@@ -8,9 +8,9 @@ The URL used to record the BitFlyer Public WebSocket API is:
 wss://ws.lightstream.bitflyer.com/json-rpc
 ```
 
-BitFlyer does not provide the way to subscribe to every pair in the market, instead, our system looks for available pairs using the REST API at the start of recording and send subscribe to those channels.
+BitFlyer does not provide the way to subscribe to every symbol in the market, instead, our system looks for available symbols using the REST API at the start of recording and send subscribe to those channels.
 
-The URL used to fetch the list of pairs is:
+The URL used to fetch the list of symbols is:
 
 ```url
 https://api.bitflyer.com/v1/markets
@@ -34,7 +34,7 @@ For the 2 minutes after the market has reopened, itayose will be implemented.
 
 Itayose is implemented when market reopens after maintenance or circuit breaker had struck.
 
-Orders executed on itayose will be ignored and not be applied to the snapshot of lightning_board_snapshot_{pair} from HTTP Snapshot Endpint.
+Orders executed on itayose will be ignored and not be applied to the snapshot of lightning_board_snapshot_{symbol} from HTTP Snapshot Endpint.
 
 ## Missing Record Report
 

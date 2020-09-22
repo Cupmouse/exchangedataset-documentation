@@ -4,7 +4,7 @@ Trade are formatted into JSON object:
 
 ```json
 {
-    "pair": pair,
+    "symbol": symbol,
     "price": price,
     "size": size
 }
@@ -12,8 +12,8 @@ Trade are formatted into JSON object:
 
 ## Fields
 
-| Field | Type    | Description                                                         |
-| ----- | ------- | ------------------------------------------------------------------- |
-| pair  | `pair`  | Name of the pair this trade was executed                            |
-| price | `price` | Price at this trade was executed, buy if positive, sell if negative |
-| size  | `size`  | Size of the trade                                                   |
+| Field  | Type     | Description                                                         |
+| ------ | -------- | ------------------------------------------------------------------- |
+| symbol | `symbol` | Name of the symbol this trade was executed                          |
+| price  | `price`  | Price at this trade was executed, buy if positive, sell if negative |
+| size   | `size`   | Size of the trade                                                   |

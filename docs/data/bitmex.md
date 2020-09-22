@@ -1,6 +1,6 @@
 # Bitmex
 
-We are recording all pair available from Bitmex WebSocket Public API.
+We are recording all symbol available from Bitmex WebSocket Public API.
 
 The URL used to connect to the Bitmex WebSocket API is:
 
@@ -10,7 +10,8 @@ wss://www.bitmex.com/realtime?subscribe=announcement,chat,connected,funding,inst
 
 For information about each topic, please see the [Bitmex Website](https://www.bitmex.com/app/wsAPI).
 
-**Channel level filtering** is not supported, because the Bitmex WebSocket API might sends a message with more than one pair involved.
+**Symbol level filtering** is not supported when using 'raw' format, because the Bitmex WebSocket API might send a message with more than one symbol.
+It is fully supported by the server-side when using 'json' format.
 
 ## ETHUSD Orderbook Issue on 24 June 2019
 
@@ -23,4 +24,4 @@ This issue affected our service as well and caused the orderbook state in our sy
 - For Filter Endpoint, all message of `orderBookL2_ETHUSD` from this period is NOT modified and *incorrect*.
 - For Snapshot Endpoint, all orderbook updates/insert of `orderBookL2_ETHUSD` in this period are normally treated, so you might encounter *wrong* orderbook state as a response around this time.
 
-Note that this issue is observed only in `ETHUSD` pair in `orderBookL2` channel and no other pairs are affected.
+Note that this issue is observed only in `ETHUSD` symbol in `orderBookL2` channel and no other symbols are affected.
